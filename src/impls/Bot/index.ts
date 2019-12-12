@@ -96,11 +96,12 @@ export class Bot extends Listener implements BotInterface {
   /**
    * Bot constructor.
    */
-  constructor(configuration?: KuroConfiguration) {
+  constructor(configuration?: KuroConfiguration, initialize = true) {
     super()
     this.client = new Client(
       configuration ? configuration.discordJsClientOptions : undefined
     )
+
     if (configuration) {
       this.prefixes = configuration.prefixes || []
       this.providers = configuration.providers || []
@@ -111,6 +112,10 @@ export class Bot extends Listener implements BotInterface {
       this.name = configuration.name || this.constructor.name
       this.versionString = configuration.versionString || '0.0.0'
       this.isBetaVersion = configuration.isBetaVersion || false
+    }
+
+    if (initialize) {
+      this.initialize()
     }
   }
 

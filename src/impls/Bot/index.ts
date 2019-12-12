@@ -1,6 +1,6 @@
 import { BotInterface } from '../../interfaces/Bot'
 import { ProviderInterface } from '../../interfaces/Provider'
-import { Client, ClientOptions } from 'discord.js'
+import { Client } from 'discord.js'
 import { ListenerRegister } from '../../classes/registers/ListenerRegister'
 import { Listener } from '../../abstracts/Listener'
 import { CommandInterface } from '../../interfaces/Command'
@@ -13,6 +13,7 @@ import { LoggerInterface } from '../../interfaces/Logger'
 import { Prefix } from '../../types/Prefix'
 import { Translator } from '../Translator'
 import { InstallableInterface } from '../../interfaces/Installable'
+import { KuroConfiguration } from '../../types/KuroConfiguration'
 
 /*
  * Bot class.
@@ -73,9 +74,7 @@ export class Bot extends Listener implements BotInterface {
   /**
    * Bot name.
    */
-  get name() {
-    return this.constructor.name
-  }
+  name = this.constructor.name
 
   /**
    * Me.
@@ -97,9 +96,22 @@ export class Bot extends Listener implements BotInterface {
   /**
    * Bot constructor.
    */
-  constructor(options?: ClientOptions) {
+  constructor(configuration?: KuroConfiguration) {
     super()
-    this.client = new Client(options)
+    this.client = new Client(
+      configuration ? configuration.discordJsClientOptions : undefined
+    )
+    if (configuration) {
+      this.prefixes = configuration.prefixes || []
+      this.providers = configuration.providers || []
+      this.commands = configuration.commands || []
+      this.listeners = configuration.listeners || []
+      this.loggers = configuration.loggers || []
+      this.plugins = configuration.plugins || []
+      this.name = configuration.name || this.constructor.name
+      this.versionString = configuration.versionString || '0.0.0'
+      this.isBetaVersion = configuration.isBetaVersion || false
+    }
   }
 
   /**

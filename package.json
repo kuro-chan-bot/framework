@@ -1,6 +1,6 @@
 {
   "name": "@kuro-chan/framework",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "author": "hota1024",
   "main": "lib/index.js",
   "types": "lib/src",
@@ -8,7 +8,8 @@
   "scripts": {
     "build": "webpack",
     "watch": "webpack --watch",
-    "lint": "eslint ./**/*.ts"
+    "lint": "eslint ./**/*.ts",
+    "publish-npm": "yarn build --mode production; yarn publish;"
   },
   "dependencies": {
     "@kuro-chan/argument-parser": "^0.0.0",

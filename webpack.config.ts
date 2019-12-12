@@ -4,7 +4,7 @@ const pkg = require('./package.json')
 
 const config: Configuration = {
   mode: 'development',
-  entry: path.resolve(__dirname, './src/index.ts'),
+  entry: ['@babel/polyfill', path.resolve(__dirname, './src/index.ts')],
   target: 'node',
   output: {
     path: path.resolve(__dirname, './lib'),

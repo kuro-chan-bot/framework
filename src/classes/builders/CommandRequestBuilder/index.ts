@@ -1,7 +1,6 @@
 import { BuilderInterface } from '../../../interfaces/Builder'
 import { CommandRequest } from '../../../impls/CommandRequest'
 import { Command } from '../../../abstracts/Command'
-import { ArgumentType } from '../../../types/ArgumentType'
 import { Message } from 'discord.js'
 
 /*

@@ -3,6 +3,7 @@
   "version": "0.2.3",
   "author": "hota1024",
   "main": "lib/index.js",
+  "types": "types/index.d.ts",
   "license": "MIT",
   "scripts": {
     "build": "tsc",

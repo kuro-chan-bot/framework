@@ -8,6 +8,7 @@
     "esModuleInterop": true,
     "declaration": true,
     "declarationMap": true,
+    "declarationDir": "./types",
     "resolveJsonModule": true
   },
   "include": [
@@ -15,6 +16,7 @@
   ],
   "exclude": [
     "node_modules",
-    "lib"
+    "lib",
+    "types"
   ]
 }

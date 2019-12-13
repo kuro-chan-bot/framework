@@ -1,4 +1,5 @@
 import { ArgumentType } from '../ArgumentType'
+import { TranslateRequestInterface } from '../../interfaces'
 
 /*
  * Argument definition.
@@ -8,7 +9,7 @@ export type ArgumentDefinition = {
   candidates?: () => any[]
   required?: boolean
   type?: ArgumentType
-  description?: string
+  description?: string | TranslateRequestInterface
 }
 
 /**

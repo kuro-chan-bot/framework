@@ -1,5 +1,6 @@
 import { TranslatorInterface } from '../../interfaces/Translator'
 import { TranslateRequest } from '../TranslateRequest'
+import { MargeObject } from '../../helpers'
 
 /*
  * Translator
@@ -56,17 +57,7 @@ export class Translator implements TranslatorInterface {
    * @param languageSet
    */
   include(languageSet: any) {
-    const marge = (languageSet: any) => {
-      const keys = Object.keys(languageSet)
-      for (const key of keys) {
-        if (typeof languageSet[key] === 'string')
-          this.languageSet[key] = languageSet[key]
-        else {
-          marge(languageSet)
-        }
-      }
-    }
-    marge(languageSet)
+    this.languageSet = MargeObject(this.languageSet, languageSet)
   }
 
   /**

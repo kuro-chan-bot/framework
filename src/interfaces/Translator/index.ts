@@ -37,6 +37,13 @@ export interface TranslatorInterface {
   languaged(language: string): TranslatorInterface
 
   /**
+   * Set language.
+   *
+   * @param language
+   */
+  setLanguage(language: string): void
+
+  /**
    * Include languages.
    *
    * @param languageSet

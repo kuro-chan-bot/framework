@@ -52,6 +52,15 @@ export class Translator implements TranslatorInterface {
   }
 
   /**
+   * Set language.
+   *
+   * @param language
+   */
+  setLanguage(language: string) {
+    this.language = language
+  }
+
+  /**
    * Include language set.
    *
    * @param languageSet

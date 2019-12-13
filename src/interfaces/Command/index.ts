@@ -8,6 +8,7 @@ import { PromiseOrType } from '../../types/PromiseOrType'
 import { CommandResponseInterface } from '../CommandResponse'
 import { HasBotContextInterface } from '../HasBotContext'
 import { ParseMessage } from '../../types/ParseMessage'
+import { TranslateRequestInterface } from '../TranslateRequest'
 
 /*
  * Command interface.
@@ -21,7 +22,7 @@ export interface CommandInterface extends HasBotContextInterface {
   /**
    * Description.
    */
-  description: string
+  description: string | TranslateRequestInterface
 
   /**
    * Aliases.

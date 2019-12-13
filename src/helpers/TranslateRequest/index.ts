@@ -8,3 +8,8 @@ import { TranslateRequest } from '../../impls/TranslateRequest'
  */
 export const t = (path: string, data: any = {}) =>
   new TranslateRequest(path, data)
+
+/**
+ * Alias to t.
+ */
+export const ctr = t

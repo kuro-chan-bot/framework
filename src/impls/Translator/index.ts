@@ -70,7 +70,8 @@ export class Translator implements TranslatorInterface {
     let set = this.getLanguageSet()
 
     if (typeof set === 'undefined') return path
-    if (typeof set[path] === 'string') return set[path]
+    if (typeof set[path] === 'string')
+      return this.compileContent(set[path], data)
 
     const paths = this.parsePath(path)
 

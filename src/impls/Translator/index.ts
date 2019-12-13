@@ -68,6 +68,8 @@ export class Translator implements TranslatorInterface {
    */
   private translatePath(path: string, data?: any) {
     let set = this.getLanguageSet()
+
+    if (typeof set === 'undefined') return path
     if (typeof set[path] === 'string') return set[path]
 
     const paths = this.parsePath(path)

@@ -12,6 +12,7 @@ import { ReplyResponse } from '../../classes/responses/ReplyResponse'
 import { ErrorResponse } from '../../classes/responses/ErrorResponse'
 import { ArgumentType } from '../../types/ArgumentType'
 import { ParseMessage } from '../../types/ParseMessage'
+import { TranslateRequestInterface } from '../../interfaces'
 
 /*
  * Command.
@@ -30,7 +31,7 @@ export abstract class Command implements CommandInterface {
   /**
    * Description.
    */
-  description: string = ''
+  description: string | TranslateRequestInterface = ''
 
   /**
    * Aliases.

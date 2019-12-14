@@ -8,7 +8,7 @@ KuroFramework is a [discord.js](https://discord.js.org/) framework.
 
 ## Standard Plugin
 
-<https://github.com/kuro-chan-bot/standard-plugin>
+[kuro-chan-bot/standard-plugin](https://github.com/kuro-chan-bot/standard-plugin)
 
 ## LICENSE
 

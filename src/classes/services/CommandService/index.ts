@@ -74,7 +74,7 @@ export class CommandService extends Listener {
       await this.command({
         ...data,
         commandString: last.commandString,
-        argsString: [...this.parseArgs(last.argsString), ...args].join(' ')
+        argsString: [...args, ...this.parseArgs(last.argsString)].join(' ')
       })
     }
   }

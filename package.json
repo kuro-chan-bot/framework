@@ -1,6 +1,6 @@
 {
   "name": "@kuro-chan/framework",
-  "version": "0.2.11",
+  "version": "0.2.12",
   "author": "hota1024",
   "main": "lib/index.js",
   "types": "types/index.d.ts",

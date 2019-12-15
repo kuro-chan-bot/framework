@@ -14,6 +14,7 @@ import { Prefix } from '../../types/Prefix'
 import { Translator } from '../Translator'
 import { InstallableInterface } from '../../interfaces/Installable'
 import { KuroConfiguration } from '../../types/KuroConfiguration'
+import { CommandServiceProvider } from '../../classes'
 
 /*
  * Bot class.
@@ -133,6 +134,22 @@ export class Bot extends Listener implements BotInterface {
    * Initialize.
    */
   protected initialize() {
+    this.info('Initializing...')
+
+    // Show warning, if prefixes is an empty array.
+    if (this.prefixes.length === 0) {
+      this.warn('prefixes is empty.')
+    }
+
+    // Show warning, if CommandServiceProvider is not provided.
+    if (
+      !this.providers.find(
+        provider => provider instanceof CommandServiceProvider
+      )
+    ) {
+      this.warn('CommandServiceProvider is not provided.')
+    }
+
     // Generate context.
     const contextBuilder = new BotContextBuilder()
     this.context = contextBuilder

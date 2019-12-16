@@ -29,6 +29,6 @@ export class HasBotContext implements HasBotContextInterface {
    * Client.
    */
   get client() {
-    return this.client
+    return this.context.client
   }
 }

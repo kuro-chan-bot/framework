@@ -21,11 +21,6 @@ import { CommandServiceProvider } from '../../classes'
  */
 export class Bot extends Listener implements BotInterface {
   /**
-   * Client.
-   */
-  private client: Client
-
-  /**
    * Event emitter.
    */
   get eventEmitter() {
@@ -99,9 +94,16 @@ export class Bot extends Listener implements BotInterface {
    */
   constructor(configuration?: KuroConfiguration, initialize = true) {
     super()
-    this.client = new Client(
+    const client = new Client(
       configuration ? configuration.discordJsClientOptions : undefined
     )
+
+    // Generate context.
+    const contextBuilder = new BotContextBuilder()
+    this.context = contextBuilder
+      .setBot(this)
+      .setClient(client)
+      .build()
 
     if (configuration) {
       this.prefixes = configuration.prefixes || []
@@ -134,13 +136,6 @@ export class Bot extends Listener implements BotInterface {
    * Initialize.
    */
   protected initialize() {
-    // Generate context.
-    const contextBuilder = new BotContextBuilder()
-    this.context = contextBuilder
-      .setBot(this)
-      .setClient(this.client)
-      .build()
-
     // Setup commands.
     this.commands.forEach(command => command.setContext(this.context))
 

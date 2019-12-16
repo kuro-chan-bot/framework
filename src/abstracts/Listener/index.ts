@@ -16,33 +16,13 @@ import {
   TextChannel
 } from 'discord.js'
 import { RegisterableInterface } from '../../interfaces/Registerable'
-import { HasBotContextInterface } from '../../interfaces/HasBotContext'
-import { BotContextInterface } from '../../interfaces/BotContext'
+import { HasBotContext } from '../HasBotContext'
 
 /*
  * Listener abstract.
  */
-export abstract class Listener
-  implements RegisterableInterface, HasBotContextInterface {
-  /**
-   * Context.
-   */
-  context!: BotContextInterface
-
-  /**
-   * Bot.
-   */
-  get bot() {
-    return this.context.bot
-  }
-
-  /**
-   * Set context.
-   */
-  setContext(context: BotContextInterface) {
-    this.context = context
-  }
-
+export abstract class Listener extends HasBotContext
+  implements RegisterableInterface {
   /**
    * On register.
    */

@@ -1,9 +1,10 @@
 import { LoggerInterface } from '../../interfaces/Logger'
+import { HasBotContext } from '../HasBotContext'
 
 /*
  * Logger interface
  */
-export class Logger implements LoggerInterface {
+export class Logger extends HasBotContext implements LoggerInterface {
   /**
    * Log.
    *

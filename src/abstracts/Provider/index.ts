@@ -1,12 +1,12 @@
 import { ProviderInterface } from '../../interfaces/Provider'
-import { HasBotContextInterface } from '../../interfaces/HasBotContext'
 import { BotContextInterface } from '../../interfaces/BotContext'
+import { HasBotContext } from '../HasBotContext'
 
 /*
  * Provider abstract.
  */
-export abstract class Provider
-  implements ProviderInterface, HasBotContextInterface {
+export abstract class Provider extends HasBotContext
+  implements ProviderInterface {
   /**
    * Context.
    */

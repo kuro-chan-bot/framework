@@ -7,22 +7,18 @@ import { CommandRequestInterface } from '../../interfaces/CommandRequest'
 import { VoidOrType } from '../../types/VoidOrType'
 import { PromiseOrType } from '../../types/PromiseOrType'
 import { CommandResponseInterface } from '../../interfaces/CommandResponse'
-import { BotContextInterface } from '../../interfaces/BotContext'
 import { ReplyResponse } from '../../classes/responses/ReplyResponse'
 import { ErrorResponse } from '../../classes/responses/ErrorResponse'
 import { ArgumentType } from '../../types/ArgumentType'
 import { ParseMessage } from '../../types/ParseMessage'
 import { TranslateRequestInterface } from '../../interfaces'
+import { HasBotContext } from '../HasBotContext'
 
 /*
  * Command.
  */
-export abstract class Command implements CommandInterface {
-  /**
-   * Context.
-   */
-  context!: BotContextInterface
-
+export abstract class Command extends HasBotContext
+  implements CommandInterface {
   /**
    * Name.
    */
@@ -95,15 +91,6 @@ export abstract class Command implements CommandInterface {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   pipe(args: any[], message?: ParseMessage): any[] {
     return []
-  }
-
-  /**
-   * Set context.
-   *
-   * @param context
-   */
-  setContext(context: BotContextInterface) {
-    this.context = context
   }
 
   /**

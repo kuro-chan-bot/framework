@@ -1,7 +1,9 @@
+import { HasBotContextInterface } from '../HasBotContext'
+
 /*
  * Logger interface.
  */
-export interface LoggerInterface {
+export interface LoggerInterface extends HasBotContextInterface {
   /**
    * Log.
    *

@@ -136,6 +136,9 @@ export class Bot extends Listener implements BotInterface {
    * Initialize.
    */
   protected initialize() {
+    // Setup loggers.
+    this.loggers.forEach(logger => logger.setContext(this.context))
+
     // Setup commands.
     this.commands.forEach(command => command.setContext(this.context))
 

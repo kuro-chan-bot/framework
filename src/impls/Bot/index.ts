@@ -290,6 +290,11 @@ export class Bot extends Listener implements BotInterface {
     this.loggerEach(logger => logger.info(object))
   }
 
+  /**
+   * Success.
+   *
+   * @param object
+   */
   success(object: any) {
     this.loggerEach(logger => logger.success(object))
   }

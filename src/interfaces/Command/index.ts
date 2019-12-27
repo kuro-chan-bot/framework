@@ -50,7 +50,7 @@ export interface CommandInterface extends HasBotContextInterface {
   run(
     args: any[],
     request: CommandRequestInterface
-  ): VoidOrType<PromiseOrType<CommandResponseInterface>>
+  ): void | Promise<CommandResponseInterface> | CommandResponseInterface
 
   /**
    * Pipe.

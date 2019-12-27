@@ -3,10 +3,10 @@ import {
   CompiledArgumentDefinition
 } from '../../types/ArgumentDefinition'
 import { CommandRequestInterface } from '../CommandRequest'
-import { CommandResponseInterface } from '../CommandResponse'
 import { HasBotContextInterface } from '../HasBotContext'
 import { ParseMessage } from '../../types/ParseMessage'
 import { TranslateRequestInterface } from '../TranslateRequest'
+import { CommandRunResult } from '../../types/CommandRunResult'
 
 /*
  * Command interface.
@@ -45,10 +45,7 @@ export interface CommandInterface extends HasBotContextInterface {
   /**
    * Run.
    */
-  run(
-    args: any[],
-    request: CommandRequestInterface
-  ): void | Promise<CommandResponseInterface> | CommandResponseInterface
+  run(args: any[], request: CommandRequestInterface): CommandRunResult
 
   /**
    * Pipe.

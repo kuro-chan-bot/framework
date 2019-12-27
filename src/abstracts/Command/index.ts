@@ -4,15 +4,13 @@ import {
   CompiledArgumentDefinition
 } from '../../types/ArgumentDefinition'
 import { CommandRequestInterface } from '../../interfaces/CommandRequest'
-import { VoidOrType } from '../../types/VoidOrType'
-import { PromiseOrType } from '../../types/PromiseOrType'
-import { CommandResponseInterface } from '../../interfaces/CommandResponse'
 import { ReplyResponse } from '../../classes/responses/ReplyResponse'
 import { ErrorResponse } from '../../classes/responses/ErrorResponse'
 import { ArgumentType } from '../../types/ArgumentType'
 import { ParseMessage } from '../../types/ParseMessage'
 import { TranslateRequestInterface } from '../../interfaces'
 import { HasBotContext } from '../HasBotContext'
+import { CommandRunResult } from '../../types/CommandRunResult'
 
 /*
  * Command.
@@ -78,10 +76,7 @@ export abstract class Command extends HasBotContext
    * @param request
    * @param args
    */
-  abstract run(
-    args: any[],
-    request: CommandRequestInterface
-  ): VoidOrType<PromiseOrType<CommandResponseInterface>>
+  abstract run(args: any[], request: CommandRequestInterface): CommandRunResult
 
   /**
    * Pipe.

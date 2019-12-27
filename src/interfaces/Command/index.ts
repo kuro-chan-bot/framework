@@ -3,8 +3,6 @@ import {
   CompiledArgumentDefinition
 } from '../../types/ArgumentDefinition'
 import { CommandRequestInterface } from '../CommandRequest'
-import { VoidOrType } from '../../types/VoidOrType'
-import { PromiseOrType } from '../../types/PromiseOrType'
 import { CommandResponseInterface } from '../CommandResponse'
 import { HasBotContextInterface } from '../HasBotContext'
 import { ParseMessage } from '../../types/ParseMessage'

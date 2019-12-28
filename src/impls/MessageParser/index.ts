@@ -6,6 +6,11 @@ import { Prefix } from '../../types/Prefix'
  * Message parser.
  */
 export class MessageParser implements MessageParserInterface {
+  /**
+   * Message parser constructor.
+   *
+   * @param prefixes
+   */
   constructor(private prefixes: Prefix[]) {}
 
   /**

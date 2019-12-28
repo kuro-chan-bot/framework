@@ -7,6 +7,11 @@ import { Prefix } from '../../types/Prefix'
  */
 export class MessageParser implements MessageParserInterface {
   /**
+   * Command demiliter.
+   */
+  commandDemiliter = / |\n/
+
+  /**
    * Message parser constructor.
    *
    * @param prefixes
@@ -21,15 +26,15 @@ export class MessageParser implements MessageParserInterface {
   parse(message: Message) {
     const prefix = this.getPrefixString(message.content)
     if (!prefix) return false
+    const splited = message.content
+      .slice(prefix.length)
+      .split(this.commandDemiliter)
 
     return {
       message,
       prefix,
-      commandString: message.content.slice(prefix.length).split(' ')[0],
-      argsString:
-        message.content.indexOf(' ') < 0
-          ? ''
-          : message.content.slice(message.content.indexOf(' ') + 1)
+      commandString: splited[0],
+      argsString: splited[1] || ''
     }
   }
 

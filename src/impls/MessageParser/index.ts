@@ -27,8 +27,14 @@ export class MessageParser implements MessageParserInterface {
     const prefix = this.getPrefixString(message.content)
     if (!prefix) return false
     const contentChars = message.content.split('')
-    const indexToCommand = contentChars.findIndex(char => char === ' ')
-    const commandString = message.content.slice(0, indexToCommand)
+    const indexToCommand = contentChars.findIndex(
+      char => char === ' ' || char === '\n'
+    )
+    const isArgumentEmpty = indexToCommand === -1
+
+    const commandString = isArgumentEmpty
+      ? message.content
+      : message.content.slice(0, indexToCommand)
     const argsString = message.content.slice(indexToCommand + 1)
 
     return {

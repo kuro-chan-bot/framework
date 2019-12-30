@@ -26,15 +26,16 @@ export class MessageParser implements MessageParserInterface {
   parse(message: Message) {
     const prefix = this.getPrefixString(message.content)
     if (!prefix) return false
-    const splited = message.content
-      .slice(prefix.length)
-      .split(this.commandDemiliter)
+    const contentChars = message.content.split('')
+    const indexToCommand = contentChars.findIndex(char => char === ' ')
+    const commandString = message.content.slice(0, indexToCommand)
+    const argsString = message.content.slice(indexToCommand + 1)
 
     return {
       message,
       prefix,
-      commandString: splited[0],
-      argsString: splited.slice(1)?.join(' ') || ''
+      commandString,
+      argsString
     }
   }
 

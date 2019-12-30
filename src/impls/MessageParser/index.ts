@@ -34,7 +34,7 @@ export class MessageParser implements MessageParserInterface {
       message,
       prefix,
       commandString: splited[0],
-      argsString: splited[1] || ''
+      argsString: splited.slice(1)?.join(' ') || ''
     }
   }
 
